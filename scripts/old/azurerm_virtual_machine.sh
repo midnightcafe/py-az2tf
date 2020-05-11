@@ -78,9 +78,9 @@ if [ "$count" -gt "0" ]; then
         if [ "$avsid" != "null" ]; then 
             printf "\t availability_set_id = \"\${azurerm_availability_set.%s.id}\"\n" $myavs >> $prefix-$name.tf
         fi
-        if [ "$vmlic" != "null" ]; then 
-            printf "\t license_type = \"%s\"\n" $vmlic >> $prefix-$name.tf
-        fi
+        # if [ "$vmlic" != "null" ]; then 
+            # printf "\t license_type = \"%s\"\n" $vmlic >> $prefix-$name.tf
+        # fi
         printf "\t vm_size = \"%s\"\n" $vmsize >> $prefix-$name.tf
         #
         # Multiples

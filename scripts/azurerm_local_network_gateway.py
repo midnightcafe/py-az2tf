@@ -53,8 +53,8 @@ def azurerm_local_network_gateway(crf,cde,crg,headers,requests,sub,json,az2tfmes
             try:
                 addrpre=str(ast.literal_eval(json.dumps(azr[i]["properties"]["localNetworkAddressSpace"]["addressPrefixes"])))
                 addrpre=addrpre.replace("'",'"')
-                if "[]" not in addrpre:
-                    fr.write('\t address_space =  ' + addrpre +  '\n')
+                # if "[]" not in addrpre:
+                fr.write('\t address_space =  ' + addrpre +  '\n')
             except KeyError:
                 pass
             
@@ -82,7 +82,7 @@ def azurerm_local_network_gateway(crf,cde,crg,headers,requests,sub,json,az2tfmes
                 fr.write('tags = { \n')
                 for key in mtags.keys():
                     tval=mtags[key]
-                    fr.write(('\t "' + key + '"="' + tval + '"\n'))
+                    fr.write(('\t "' + key + '"="' + tval.replace("\n", "").replace('"', '') + '"\n'))
                 fr.write('}\n')
             except KeyError:
                 pass

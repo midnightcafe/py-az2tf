@@ -68,11 +68,11 @@ def azurerm_virtual_machine(crf,cde,crg,headers,requests,sub,json,az2tfmess,cldu
                 pass
 
 
-            try : 
-                vmlic=azr[i]["properties"]["licenseType"]
-                fr.write('\t license_type = "' +  vmlic + '"\n')
-            except KeyError:
-                pass
+            # try : 
+                # vmlic=azr[i]["properties"]["licenseType"]
+                # fr.write('\t license_type = "' +  vmlic + '"\n')
+            # except KeyError:
+                # pass
 
             fr.write('\t vm_size = "' + vmsize + '"\n')
             #
